@@ -1,5 +1,21 @@
 # Changelog
 
+## 3.9.0
+
+### Minor Changes
+
+- [#298](https://github.com/cloudflare/wrangler-action/pull/298) [`134b5c2a3252d66b8c4d1cddd0b9baaeed6a4daa`](https://github.com/cloudflare/wrangler-action/commit/134b5c2a3252d66b8c4d1cddd0b9baaeed6a4daa) Thanks [@Maximo-Guk](https://github.com/Maximo-Guk)! - Update wrangler version from 3.13.2 to 3.78.10
+
+### Patch Changes
+
+- [#278](https://github.com/cloudflare/wrangler-action/pull/278) [`47d51f25c113ee9205110728599b43ed6a1e273b`](https://github.com/cloudflare/wrangler-action/commit/47d51f25c113ee9205110728599b43ed6a1e273b) Thanks [@acusti](https://github.com/acusti)! - fix: Detect existing wrangler install even when wrangler version output is multiline
+
+## 3.8.0
+
+### Minor Changes
+
+- [#291](https://github.com/cloudflare/wrangler-action/pull/291) [`a1467a0c8f2a058f8d43a4d0c40a55176ed5efe6`](https://github.com/cloudflare/wrangler-action/commit/a1467a0c8f2a058f8d43a4d0c40a55176ed5efe6) Thanks [@Ambroos](https://github.com/Ambroos)! - Adds `deployment-alias-url` output for Pages deployment aliases (since Wrangler v3.78.0): https://github.com/cloudflare/workers-sdk/pull/6643
+
 ## 3.7.0
 
 ### Minor Changes

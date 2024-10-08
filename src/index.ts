@@ -16,7 +16,7 @@ import { exec, execShell } from "./exec";
 import { checkWorkingDirectory, semverCompare } from "./utils";
 import { getPackageManager } from "./packageManagers";
 
-const DEFAULT_WRANGLER_VERSION = "3.13.2";
+const DEFAULT_WRANGLER_VERSION = "3.78.10";
 
 /**
  * A configuration object that contains all the inputs & immutable state for the action.
@@ -104,7 +104,7 @@ async function installWrangler() {
 		// `3.48.0`
 		const versionMatch =
 			stdout.match(/wrangler (\d+\.\d+\.\d+)/) ??
-			stdout.match(/^(\d+\.\d+\.\d+)/);
+			stdout.match(/^(\d+\.\d+\.\d+)/m);
 		if (versionMatch) {
 			installedVersion = versionMatch[1];
 		}
@@ -346,6 +346,15 @@ async function wranglerCommands() {
 				if (deploymentUrlMatch && deploymentUrlMatch[0]) {
 					deploymentUrl = deploymentUrlMatch[0].trim();
 					setOutput("deployment-url", deploymentUrl);
+				}
+
+				// And also try to extract the alias URL (since wrangler@3.78.0)
+				const aliasUrlMatch = stdOut.match(
+					/alias URL: (https?:\/\/[a-zA-Z0-9-./]+)/,
+				);
+				if (aliasUrlMatch && aliasUrlMatch.length == 2 && aliasUrlMatch[1]) {
+					const aliasUrl = aliasUrlMatch[1].trim();
+					setOutput("deployment-alias-url", aliasUrl);
 				}
 			}
 		}
